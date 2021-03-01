@@ -64,7 +64,7 @@ def plot_columns(fig_type, x, y, plot_type):
             # We always plot in the same (the only) ax.
             current_ax = ax
 
-        else:   # we've already checked: if it's not "single" then it has to be "subplots"
+        else:   # we have more than 1 ax
             # We plot in the ith element of the ax array
             current_ax = ax[i]
 
@@ -106,7 +106,7 @@ def plot_columns(fig_type, x, y, plot_type):
             current_ax.legend()
 
     # If I have several subplots, adjust margins to make sure titles etc. are visible
-    if fig_type == "subplots":
+    else:
         plt.subplots_adjust(left=0.08, right=0.97, bottom=0.08, top=0.93, hspace=0.3)
 
     # Finally: display the figure!
@@ -152,26 +152,26 @@ y[:, 7] = np.polyval(coeffs_5, x[:, 7] + noise_2 * np.random.randn(n_points))
 
 # All plots
 # (some of these will look messy!)
-# plot_columns("single", x, y, ["line", "line", "scatter", "scatter", "line", "line", "scatter", "scatter"])
-# plot_columns("subplots", x, y, ["line", "line", "scatter", "scatter", "line", "line", "scatter", "scatter"])
-# plot_columns("single", x, y, ["line"] * n_plots)
-# plot_columns("single", x, y, ["scatter"] * n_plots)
-# plot_columns("subplots", x, y, ["line"] * n_plots)
-# plot_columns("subplots", x, y, ["scatter"] * n_plots)
+#  plot_columns("single", x, y, ["line", "line", "scatter", "scatter", "line", "line", "scatter", "scatter"])
+#  plot_columns("subplots", x, y, ["line", "line", "scatter", "scatter", "line", "line", "scatter", "scatter"])
+#  plot_columns("single", x, y, ["line"] * n_plots)
+#  plot_columns("single", x, y, ["scatter"] * n_plots)
+#  plot_columns("subplots", x, y, ["line"] * n_plots)
+#  plot_columns("subplots", x, y, ["scatter"] * n_plots)
 
 # Clean and noisy data together
 # plot_columns("single", x[:, [0, 2]], y[:, [0, 2]], ["line", "scatter"])
 # plot_columns("single", x[:, [1, 3]], y[:, [1, 3]], ["line", "scatter"])
 # plot_columns("single", x[:, [4, 6]], y[:, [4, 6]], ["line", "scatter"])
 # plot_columns("single", x[:, [5, 7]], y[:, [5, 7]], ["line", "scatter"])
-# plot_columns("single", x[:, :4], y[:, :4], ["line", "line", "scatter", "scatter"])
-# plot_columns("single", x[:, 4:], y[:, 4:], ["line", "line", "scatter", "scatter"])
+#  plot_columns("single", x[:, :4], y[:, :4], ["line", "line", "scatter", "scatter"])
+#  plot_columns("single", x[:, 4:], y[:, 4:], ["line", "line", "scatter", "scatter"])
 
 # plot_columns("subplots", x[:, [0, 2]], y[:, [0, 2]], ["line", "scatter"])
 # plot_columns("subplots", x[:, [1, 3]], y[:, [1, 3]], ["line", "scatter"])
 
 # Single column
-# plot_columns("single", x[:, [3]], y[:, [3]], ["line"])
-# plot_columns("single", x[:, [3]], y[:, [3]], ["scatter"])
-# plot_columns("subplots", x[:, [3]], y[:, [3]], ["line"])
-# plot_columns("subplots", x[:, [3]], y[:, [3]], ["scatter"])
+#  plot_columns("single", x[:, [3]], y[:, [3]], ["line"])
+#  plot_columns("single", x[:, [3]], y[:, [3]], ["scatter"])
+#  plot_columns("subplots", x[:, [3]], y[:, [3]], ["line"])
+#  plot_columns("subplots", x[:, [3]], y[:, [3]], ["scatter"])
